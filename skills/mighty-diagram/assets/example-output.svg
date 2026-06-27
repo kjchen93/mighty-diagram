@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="540" viewBox="0 0 860 540"
+     role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">Example web application architecture</title>
+  <desc id="diagram-desc">Client layer (Web App, Admin UI) flows into the Application layer
+    (API Server and a dashed Async Workers sub-group) which reads and writes the Data layer
+    (PostgreSQL, Redis Cache, Object Storage), all inside a Docker deployment boundary.</desc>
+
+  <!-- ============================================================= -->
+  <!-- PALETTE (PwC brand defaults): edit ONLY these to recolor.      -->
+  <!-- Presets in assets/palettes.json ('reference' = original maroon/orange).   -->
+  <!-- ============================================================= -->
+  <style>
+    :root {
+      --canvas:        #ffffff;  /* background                       */
+      --frame:         #AD1B02;  /* outer deployment border + label  */
+      --group-fill:    #f6f3f0;  /* group box background             */
+      --group-stroke:  #e7e0da;  /* group box border                 */
+      --title:         #1f1b18;  /* group titles                     */
+      --subgroup:      #e88d14;  /* dashed sub-group border + title   */
+      --subgroup-fill: #fdf4e8;  /* dashed sub-group background       */
+      --icon:          #595550;  /* line icons                       */
+      --accent:        #db4e18;  /* flow arrows (one accent only)     */
+      --label:         #46403b;  /* node labels                      */
+    }
+    .canvas    { fill: var(--canvas); }
+    .frame     { fill: none; stroke: var(--frame); stroke-width: 2; }
+    .frame-tag { fill: var(--canvas); stroke: var(--frame); stroke-width: 1.5; }
+    .frame-txt { fill: var(--frame); font-weight: 700; font-size: 11px;
+                 letter-spacing: 0.08em; text-transform: uppercase; }
+    .group     { fill: var(--group-fill); stroke: var(--group-stroke); stroke-width: 1; }
+    .title     { fill: var(--title); font-weight: 700; font-size: 15px; }
+    .subgroup  { fill: var(--subgroup-fill); stroke: var(--subgroup); stroke-width: 1.5;
+                 stroke-dasharray: 6 4; }
+    .subtitle  { fill: var(--subgroup); font-weight: 600; font-size: 12px; }
+    .label     { fill: var(--label); font-size: 12px; font-weight: 500; }
+    .edge      { fill: none; stroke: var(--accent); stroke-width: 2; }
+    .icon-svg  { stroke: var(--icon); stroke-width: 1.4; fill: none;
+                 stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+    text       { font-family: Inter, "Segoe UI", system-ui, Helvetica, Arial, sans-serif; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <rect class="canvas" x="0" y="0" width="860" height="540"/>
+
+  <!-- ===== Outer deployment frame ===== -->
+  <rect class="frame" x="24" y="28" width="812" height="476" rx="6"/>
+  <rect class="frame-tag" x="688" y="488" width="148" height="26" rx="4"/>
+  <text class="frame-txt" x="762" y="505" text-anchor="middle">Docker Deployment</text>
+
+  <!-- ===== Group: Client Layer (col 1) ===== -->
+  <rect class="group" x="56" y="64" width="232" height="412" rx="10"/>
+  <text class="title" x="172" y="92" text-anchor="middle">Client Layer</text>
+
+  <g class="node">
+    <svg class="icon-svg" x="151" y="150" width="42" height="42" viewBox="0 0 24 24">
+      <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 4v4"/><path d="M2 8h20"/><path d="M6 4v4"/>
+    </svg>
+    <text class="label" x="172" y="210" text-anchor="middle">Web App</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="151" y="300" width="42" height="42" viewBox="0 0 24 24">
+      <rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>
+    </svg>
+    <text class="label" x="172" y="360" text-anchor="middle">Admin UI</text>
+  </g>
+
+  <!-- ===== Group: Application Layer (col 2) ===== -->
+  <rect class="group" x="326" y="64" width="232" height="412" rx="10"/>
+  <text class="title" x="442" y="92" text-anchor="middle">Application Layer</text>
+
+  <g class="node">
+    <svg class="icon-svg" x="421" y="150" width="42" height="42" viewBox="0 0 24 24">
+      <rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/>
+    </svg>
+    <text class="label" x="442" y="210" text-anchor="middle">API Server</text>
+  </g>
+
+  <!-- dashed sub-group: async workers -->
+  <rect class="subgroup" x="346" y="250" width="192" height="180" rx="8"/>
+  <text class="subtitle" x="442" y="274" text-anchor="middle">Async Workers</text>
+  <g class="node">
+    <svg class="icon-svg" x="379" y="296" width="42" height="42" viewBox="0 0 24 24">
+      <path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+    </svg>
+    <text class="label" x="400" y="356" text-anchor="middle">Worker</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="463" y="296" width="42" height="42" viewBox="0 0 24 24">
+      <path d="M11 10.27 7 3.34"/><path d="m11 13.73-4 6.93"/><path d="M12 22v-2"/><path d="M12 2v2"/><path d="M14 12h8"/><path d="m17 20.66-1-1.73"/><path d="m17 3.34-1 1.73"/><path d="M2 12h2"/><path d="m20.66 17-1.73-1"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m3.34 7 1.73 1"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="8"/>
+    </svg>
+    <text class="label" x="484" y="356" text-anchor="middle">Scheduler</text>
+  </g>
+
+  <!-- ===== Group: Data Layer (col 3) ===== -->
+  <rect class="group" x="596" y="64" width="232" height="412" rx="10"/>
+  <text class="title" x="712" y="92" text-anchor="middle">Data Layer</text>
+
+  <g class="node">
+    <svg class="icon-svg" x="691" y="150" width="42" height="42" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>
+    </svg>
+    <text class="label" x="712" y="210" text-anchor="middle">PostgreSQL</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="691" y="292" width="42" height="42" viewBox="0 0 24 24">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+    </svg>
+    <text class="label" x="712" y="352" text-anchor="middle">Redis Cache</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="691" y="404" width="42" height="42" viewBox="0 0 24 24">
+      <path d="M10 16h.01"/><path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><path d="M21.946 12.013H2.054"/><path d="M6 16h.01"/>
+    </svg>
+    <text class="label" x="712" y="464" text-anchor="middle">Object Storage</text>
+  </g>
+
+  <!-- ===== Flow arrows (orange) ===== -->
+  <path class="edge" d="M200,171 H414"            marker-end="url(#arrow)"/>  <!-- web -> api -->
+  <path class="edge" d="M198,321 H300 V185 H414"  marker-end="url(#arrow)"/>  <!-- admin -> api -->
+  <path class="edge" d="M470,171 H684"            marker-end="url(#arrow)"/>  <!-- api -> postgres -->
+  <path class="edge" d="M442,216 V247"            marker-end="url(#arrow)"/>  <!-- api -> workers -->
+  <path class="edge" d="M545,313 H684"            marker-end="url(#arrow)"/>  <!-- workers -> redis -->
+  <path class="edge" d="M538,372 H640 V425 H684"  marker-end="url(#arrow)"/>  <!-- workers -> storage -->
+</svg>

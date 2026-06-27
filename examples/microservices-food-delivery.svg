@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="648" viewBox="0 0 980 648"
+     role="img" aria-labelledby="t d">
+  <title id="t">Food Delivery Microservices architecture</title>
+  <desc id="d">Clients (Web SPA, Mobile) call a YARP API Gateway that routes to vertical-slice
+    microservices (Catalogs, Customers, Identity, Carts, Billing). Services communicate
+    asynchronously over a RabbitMQ event bus and use polyglot persistence: PostgreSQL for
+    writes, MongoDB for reads (CQRS), and Redis for caching. Rendered in PwC brand colors.</desc>
+
+  <!-- ===== PwC palette: edit ONLY these :root variables to recolor ===== -->
+  <style>
+    :root {
+      --canvas:        #ffffff;
+      --frame:         #AD1B02;  /* PwC red    – deployment boundary */
+      --group-fill:    #f6f3f0;  /* warm light grey */
+      --group-stroke:  #e7e0da;
+      --title:         #1f1b18;  /* warm near-black */
+      --subgroup:      #e88d14;  /* PwC light orange – dashed boundary */
+      --subgroup-fill: #fdf4e8;
+      --icon:          #595550;  /* warm grey */
+      --accent:        #db4e18;  /* PwC dark orange – flow arrows */
+      --label:         #46403b;
+    }
+    .canvas    { fill: var(--canvas); }
+    .frame     { fill: none; stroke: var(--frame); stroke-width: 2; }
+    .frame-tag { fill: var(--canvas); stroke: var(--frame); stroke-width: 1.5; }
+    .frame-txt { fill: var(--frame); font-weight: 700; font-size: 11px;
+                 letter-spacing: 0.08em; text-transform: uppercase; }
+    .group     { fill: var(--group-fill); stroke: var(--group-stroke); stroke-width: 1; }
+    .title     { fill: var(--title); font-weight: 700; font-size: 15px; }
+    .subgroup  { fill: var(--subgroup-fill); stroke: var(--subgroup); stroke-width: 1.5;
+                 stroke-dasharray: 6 4; }
+    .subtitle  { fill: var(--subgroup); font-weight: 600; font-size: 12px; }
+    .label     { fill: var(--label); font-size: 12px; font-weight: 500; }
+    .edge-lbl  { fill: var(--label); font-size: 11px; font-weight: 500; }
+    .edge      { fill: none; stroke: var(--accent); stroke-width: 2; }
+    .icon-svg  { stroke: var(--icon); stroke-width: 1.4; fill: none;
+                 stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+    text       { font-family: Inter, "Segoe UI", system-ui, Helvetica, Arial, sans-serif; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <rect class="canvas" x="0" y="0" width="980" height="648"/>
+
+  <!-- Outer deployment frame (wraps gateway, services, data; clients are external) -->
+  <rect class="frame" x="244" y="64" width="688" height="520" rx="6"/>
+  <rect class="frame-tag" x="794" y="570" width="138" height="24" rx="4"/>
+  <text class="frame-txt" x="863" y="586" text-anchor="middle">Docker Compose</text>
+
+  <!-- ===== Clients (external) ===== -->
+  <rect class="group" x="40" y="88" width="170" height="480" rx="10"/>
+  <text class="title" x="125" y="116" text-anchor="middle">Clients</text>
+  <g class="node">
+    <svg class="icon-svg" x="105" y="180" width="40" height="40" viewBox="0 0 24 24">
+      <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 4v4"/><path d="M2 8h20"/><path d="M6 4v4"/>
+    </svg>
+    <text class="label" x="125" y="236" text-anchor="middle">Web SPA</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="105" y="380" width="40" height="40" viewBox="0 0 24 24">
+      <rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>
+    </svg>
+    <text class="label" x="125" y="436" text-anchor="middle">Mobile App</text>
+  </g>
+
+  <!-- ===== API Edge ===== -->
+  <rect class="group" x="264" y="88" width="180" height="480" rx="10"/>
+  <text class="title" x="354" y="116" text-anchor="middle">API Edge</text>
+  <g class="node">
+    <svg class="icon-svg" x="334" y="300" width="40" height="40" viewBox="0 0 24 24">
+      <rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>
+    </svg>
+    <text class="label" x="354" y="356" text-anchor="middle">API Gateway · YARP</text>
+  </g>
+
+  <!-- ===== Microservices ===== -->
+  <rect class="group" x="480" y="88" width="180" height="480" rx="10"/>
+  <text class="title" x="570" y="116" text-anchor="middle">Microservices</text>
+  <g class="node">
+    <svg class="icon-svg" x="550" y="160" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
+    </svg>
+    <text class="label" x="570" y="216" text-anchor="middle">Catalogs</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="550" y="240" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/>
+    </svg>
+    <text class="label" x="570" y="296" text-anchor="middle">Customers</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="550" y="320" width="40" height="40" viewBox="0 0 24 24">
+      <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/>
+    </svg>
+    <text class="label" x="570" y="376" text-anchor="middle">Identity</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="550" y="400" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/>
+    </svg>
+    <text class="label" x="570" y="456" text-anchor="middle">Carts</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="550" y="480" width="40" height="40" viewBox="0 0 24 24">
+      <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+    </svg>
+    <text class="label" x="570" y="536" text-anchor="middle">Billing</text>
+  </g>
+
+  <!-- ===== Data & Messaging ===== -->
+  <rect class="group" x="696" y="88" width="200" height="480" rx="10"/>
+  <text class="title" x="796" y="116" text-anchor="middle">Data &amp; Messaging</text>
+  <g class="node">
+    <svg class="icon-svg" x="776" y="165" width="40" height="40" viewBox="0 0 24 24">
+      <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>
+    </svg>
+    <text class="label" x="796" y="221" text-anchor="middle">RabbitMQ · bus</text>
+  </g>
+
+  <!-- dashed sub-group: CQRS polyglot persistence -->
+  <rect class="subgroup" x="716" y="268" width="160" height="292" rx="8"/>
+  <text class="subtitle" x="796" y="288" text-anchor="middle">Polyglot Persistence</text>
+  <g class="node">
+    <svg class="icon-svg" x="776" y="305" width="40" height="40" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>
+    </svg>
+    <text class="label" x="796" y="361" text-anchor="middle">PostgreSQL · write</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="776" y="400" width="40" height="40" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>
+    </svg>
+    <text class="label" x="796" y="456" text-anchor="middle">MongoDB · read</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="776" y="495" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+    </svg>
+    <text class="label" x="796" y="551" text-anchor="middle">Redis · cache</text>
+  </g>
+
+  <!-- ===== Flow arrows (PwC orange) ===== -->
+  <path class="edge" d="M150,200 H240 V312 H330" marker-end="url(#arrow)"/>  <!-- web spa -> gateway -->
+  <path class="edge" d="M150,400 H260 V330 H330" marker-end="url(#arrow)"/>  <!-- mobile -> gateway -->
+  <text class="edge-lbl" x="430" y="306" text-anchor="middle">routes</text>
+  <path class="edge" d="M380,320 H476" marker-end="url(#arrow)"/>             <!-- gateway -> services -->
+  <text class="edge-lbl" x="716" y="180" text-anchor="middle">events</text>
+  <path class="edge" d="M660,188 H772" marker-start="url(#arrow)" marker-end="url(#arrow)"/> <!-- services <-> rabbitmq -->
+  <text class="edge-lbl" x="688" y="409" text-anchor="middle">data</text>
+  <path class="edge" d="M660,418 H712" marker-end="url(#arrow)"/>             <!-- services -> persistence -->
+</svg>

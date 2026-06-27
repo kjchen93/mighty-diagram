@@ -1,0 +1,32 @@
+{
+  "name": "mighty-diagram",
+  "id": "mighty-diagram",
+  "owner": {
+    "name": "kjchen93"
+  },
+  "metadata": {
+    "description": "Generate clean, minimalist technical architecture diagrams of a code repository as a self-contained SVG.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "mighty-diagram",
+      "source": "./",
+      "description": "Analyze a repository and draw a clean, minimalist architecture diagram (component, tech-stack, or user-workflow view) as a self-contained SVG. Zero runtime dependencies; fully customizable colors.",
+      "version": "1.0.0",
+      "author": {
+        "name": "kjchen93"
+      },
+      "keywords": [
+        "diagram",
+        "architecture",
+        "svg",
+        "tech-stack",
+        "visualization",
+        "documentation"
+      ],
+      "category": "developer-tools",
+      "strict": false
+    }
+  ]
+}

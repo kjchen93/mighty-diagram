@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  mighty-diagram STARTER TEMPLATE
+  Copy this file, then replace the marked regions. The element CLASSES below are the
+  contract used throughout the skill — keep them and only change geometry/content/colors.
+
+  Coordinate model (see references/style-system.md and references/svg-authoring.md):
+    - Lay GROUP boxes out as columns, left -> right, equal gutters.
+    - Stack NODES (icon + label) in rows inside each group.
+    - Recolor by editing ONLY the :root variables below.
+  Set width/height/viewBox to fit your content (give ~40px margin around the frame).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420"
+     role="img" aria-labelledby="t d">
+  <title id="t">REPLACE: short diagram title</title>
+  <desc id="d">REPLACE: one-sentence description of the system and main data flow.</desc>
+
+  <!-- ===== PALETTE (PwC brand defaults): edit ONLY these to recolor everything.
+       Presets in assets/palettes.json; 'reference' restores the original maroon/orange colors. ===== -->
+  <style>
+    :root {
+      --canvas:        #ffffff;
+      --frame:         #AD1B02;
+      --group-fill:    #f6f3f0;
+      --group-stroke:  #e7e0da;
+      --title:         #1f1b18;
+      --subgroup:      #e88d14;
+      --subgroup-fill: #fdf4e8;
+      --icon:          #595550;
+      --accent:        #db4e18;
+      --label:         #46403b;
+    }
+    .canvas    { fill: var(--canvas); }
+    .frame     { fill: none; stroke: var(--frame); stroke-width: 2; }
+    .frame-tag { fill: var(--canvas); stroke: var(--frame); stroke-width: 1.5; }
+    .frame-txt { fill: var(--frame); font-weight: 700; font-size: 11px;
+                 letter-spacing: 0.08em; text-transform: uppercase; }
+    .group     { fill: var(--group-fill); stroke: var(--group-stroke); stroke-width: 1; }
+    .title     { fill: var(--title); font-weight: 700; font-size: 15px; }
+    .subgroup  { fill: var(--subgroup-fill); stroke: var(--subgroup); stroke-width: 1.5;
+                 stroke-dasharray: 6 4; }
+    .subtitle  { fill: var(--subgroup); font-weight: 600; font-size: 12px; }
+    .label     { fill: var(--label); font-size: 12px; font-weight: 500; }
+    .edge      { fill: none; stroke: var(--accent); stroke-width: 2; }
+    .icon-svg  { stroke: var(--icon); stroke-width: 1.4; fill: none;
+                 stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+    text       { font-family: Inter, "Segoe UI", system-ui, Helvetica, Arial, sans-serif; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <rect class="canvas" x="0" y="0" width="720" height="420"/>
+
+  <!-- OPTIONAL outer boundary (a deployable unit, e.g. a container/VPC). Omit if not needed. -->
+  <rect class="frame" x="24" y="24" width="672" height="372" rx="6"/>
+  <rect class="frame-tag" x="556" y="380" width="140" height="24" rx="4"/>
+  <text class="frame-txt" x="626" y="396" text-anchor="middle">Boundary</text>
+
+  <!-- ===== GROUP (column). Duplicate per layer. ===== -->
+  <rect class="group" x="56" y="60" width="232" height="300" rx="10"/>
+  <text class="title" x="172" y="88" text-anchor="middle">Group Title</text>
+
+  <!-- ===== NODE = inlined icon + label. Duplicate per component. =====
+       Paste icon shapes from assets/icons/<name>.svg between the <svg class="icon-svg"> tags.
+       Center the icon at the column center; put the label ~16px below the icon. -->
+  <g class="node">
+    <svg class="icon-svg" x="151" y="120" width="42" height="42" viewBox="0 0 24 24">
+      <rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/>
+    </svg>
+    <text class="label" x="172" y="180" text-anchor="middle">Component</text>
+  </g>
+
+  <!-- ===== OPTIONAL dashed sub-group (an internal boundary, e.g. async workers). ===== -->
+  <!--
+  <rect class="subgroup" x="..." y="..." width="..." height="..." rx="8"/>
+  <text class="subtitle" x="..." y="..." text-anchor="middle">Sub-group</text>
+  -->
+
+  <!-- ===== EDGE (flow arrow). Use H/V for orthogonal routing; never cross a box. ===== -->
+  <!-- <path class="edge" d="M x1,y1 H xmid V ymid H x2" marker-end="url(#arrow)"/> -->
+</svg>

@@ -1,0 +1,56 @@
+{
+  "name": "mighty-diagram-cli",
+  "version": "1.0.0",
+  "description": "Install the mighty-diagram skill (clean architecture diagrams from any repo) into Claude Code, Cursor, Windsurf, and other AI coding assistants.",
+  "type": "module",
+  "bin": {
+    "mighty-diagram": "dist/index.js",
+    "mdiagram": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "assets",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "sync": "node scripts/sync-assets.mjs",
+    "prebuild": "npm run sync",
+    "build": "tsup src/index.ts --format esm --target node18 --clean",
+    "prepublishOnly": "npm run build",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "keywords": [
+    "mighty-diagram",
+    "architecture-diagram",
+    "svg",
+    "ai-skill",
+    "claude-code",
+    "cli"
+  ],
+  "author": "kjchen93",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/kjchen93/mighty-diagram#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjchen93/mighty-diagram.git",
+    "directory": "cli"
+  },
+  "bugs": {
+    "url": "https://github.com/kjchen93/mighty-diagram/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

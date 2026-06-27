@@ -1,0 +1,41 @@
+{
+  "name": "mighty-diagram",
+  "displayName": "Mighty Diagram",
+  "description": "Turn any code repository into a clean, minimalist technical architecture diagram (component, tech-stack, or user-workflow view) as a self-contained SVG. Zero runtime dependencies; fully customizable colors.",
+  "version": "1.0.0",
+  "author": "kjchen93",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/kjchen93/mighty-diagram",
+  "repository": "https://github.com/kjchen93/mighty-diagram",
+  "keywords": [
+    "diagram",
+    "architecture",
+    "svg",
+    "tech-stack",
+    "user-workflow",
+    "visualization",
+    "documentation",
+    "ai-skill"
+  ],
+  "platforms": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "copilot",
+    "codex",
+    "gemini",
+    "opencode",
+    "continue",
+    "droid",
+    "kilocode",
+    "roocode",
+    "qoder",
+    "warp",
+    "augment",
+    "antigravity",
+    "codebuddy",
+    "kiro",
+    "trae"
+  ],
+  "install": "npx mighty-diagram-cli init --ai {{platform}}"
+}

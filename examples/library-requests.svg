@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="740" viewBox="0 0 900 740"
+     role="img" aria-labelledby="t d">
+  <title id="t">requests (Python HTTP library) — module &amp; dependency overview</title>
+  <desc id="d">The public API wraps core modules (Session, models, adapters, auth). The library
+    is built on PyPI dependencies urllib3, certifi, idna, and charset-normalizer, with optional
+    extras PySocks and chardet. There is no deployment boundary — this is a library, so the
+    diagram has no outer frame.</desc>
+
+  <!-- PwC brand defaults; edit :root to recolor. -->
+  <style>
+    :root {
+      --canvas:        #ffffff;
+      --frame:         #AD1B02;
+      --group-fill:    #f6f3f0;
+      --group-stroke:  #e7e0da;
+      --title:         #1f1b18;
+      --subgroup:      #e88d14;
+      --subgroup-fill: #fdf4e8;
+      --icon:          #595550;
+      --accent:        #db4e18;
+      --label:         #46403b;
+    }
+    .canvas    { fill: var(--canvas); }
+    .group     { fill: var(--group-fill); stroke: var(--group-stroke); stroke-width: 1; }
+    .title     { fill: var(--title); font-weight: 700; font-size: 15px; }
+    .subgroup  { fill: var(--subgroup-fill); stroke: var(--subgroup); stroke-width: 1.5;
+                 stroke-dasharray: 6 4; }
+    .subtitle  { fill: var(--subgroup); font-weight: 600; font-size: 12px; }
+    .label     { fill: var(--label); font-size: 12px; font-weight: 500; }
+    .edge-lbl  { fill: var(--label); font-size: 11px; font-weight: 500; }
+    .edge      { fill: none; stroke: var(--accent); stroke-width: 2; }
+    .icon-svg  { stroke: var(--icon); stroke-width: 1.4; fill: none;
+                 stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+    text       { font-family: Inter, "Segoe UI", system-ui, Helvetica, Arial, sans-serif; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <rect class="canvas" x="0" y="0" width="900" height="740"/>
+
+  <!-- NOTE: no <rect class="frame"> — a library has no deployment boundary. -->
+
+  <!-- ===== Public API ===== -->
+  <rect class="group" x="50" y="70" width="230" height="620" rx="10"/>
+  <text class="title" x="165" y="98" text-anchor="middle">Public API</text>
+  <g class="node">
+    <svg class="icon-svg" x="145" y="360" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/>
+    </svg>
+    <text class="label" x="165" y="416" text-anchor="middle">requests.api</text>
+    <text class="label" x="165" y="434" text-anchor="middle" font-size="11">get · post · request</text>
+  </g>
+
+  <!-- ===== Core modules ===== -->
+  <rect class="group" x="330" y="70" width="230" height="620" rx="10"/>
+  <text class="title" x="445" y="98" text-anchor="middle">Core modules</text>
+  <g class="node">
+    <svg class="icon-svg" x="425" y="150" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/>
+    </svg>
+    <text class="label" x="445" y="206" text-anchor="middle">Session</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="425" y="270" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
+    </svg>
+    <text class="label" x="445" y="326" text-anchor="middle">models</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="425" y="390" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M12 22v-5"/><path d="M15 8V2"/><path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z"/><path d="M9 8V2"/>
+    </svg>
+    <text class="label" x="445" y="446" text-anchor="middle">adapters</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="425" y="510" width="40" height="40" viewBox="0 0 24 24">
+      <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/>
+    </svg>
+    <text class="label" x="445" y="566" text-anchor="middle">auth</text>
+  </g>
+
+  <!-- ===== Dependencies ===== -->
+  <rect class="group" x="610" y="70" width="250" height="620" rx="10"/>
+  <text class="title" x="735" y="98" text-anchor="middle">Dependencies · PyPI</text>
+  <g class="node">
+    <svg class="icon-svg" x="715" y="150" width="40" height="40" viewBox="0 0 24 24">
+      <rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>
+    </svg>
+    <text class="label" x="735" y="206" text-anchor="middle">urllib3</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="715" y="250" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    </svg>
+    <text class="label" x="735" y="306" text-anchor="middle">certifi</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="715" y="350" width="40" height="40" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </svg>
+    <text class="label" x="735" y="406" text-anchor="middle">idna</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="715" y="450" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/>
+    </svg>
+    <text class="label" x="735" y="506" text-anchor="middle">charset-normalizer</text>
+  </g>
+
+  <!-- dashed sub-group used WITHOUT any outer frame -->
+  <rect class="subgroup" x="620" y="524" width="240" height="150" rx="8"/>
+  <text class="subtitle" x="740" y="544" text-anchor="middle">Optional extras</text>
+  <g class="node">
+    <svg class="icon-svg" x="660" y="560" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M12 22v-5"/><path d="M15 8V2"/><path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z"/><path d="M9 8V2"/>
+    </svg>
+    <text class="label" x="680" y="616" text-anchor="middle">PySocks</text>
+  </g>
+  <g class="node">
+    <svg class="icon-svg" x="770" y="560" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/>
+    </svg>
+    <text class="label" x="790" y="616" text-anchor="middle">chardet</text>
+  </g>
+
+  <!-- ===== Composition arrows (PwC orange) ===== -->
+  <text class="edge-lbl" x="305" y="372" text-anchor="middle">calls</text>
+  <path class="edge" d="M190,380 H326" marker-end="url(#arrow)"/>   <!-- api -> core -->
+  <text class="edge-lbl" x="585" y="372" text-anchor="middle">uses</text>
+  <path class="edge" d="M566,380 H606" marker-end="url(#arrow)"/>   <!-- core -> deps -->
+</svg>

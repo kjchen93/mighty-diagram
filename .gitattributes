@@ -1,0 +1,7 @@
+# Normalize line endings: store text as LF (keeps CI/shell scripts consistent across OSes)
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.ttf binary
+*.ico binary

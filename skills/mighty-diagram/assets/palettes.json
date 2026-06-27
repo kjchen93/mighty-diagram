@@ -1,0 +1,84 @@
+{
+  "$comment": "Preset palettes for mighty-diagram. Each maps directly to the SVG :root CSS variables. The DEFAULT palette is 'pwc' (see the 'default' field). The developer may name a preset or supply their own hex values for any subset (unspecified keys keep the default). 'accent' colors the flow arrows, 'frame' the outer boundary, 'subgroup' the dashed internal boundary.",
+  "default": "pwc",
+  "presets": {
+    "pwc": {
+      "comment": "DEFAULT. PwC brand 'flame' palette: red boundary, dark-orange arrows, light-orange dashed sub-group, warm greys.",
+      "canvas": "#ffffff",
+      "frame": "#AD1B02",
+      "group-fill": "#f6f3f0",
+      "group-stroke": "#e7e0da",
+      "title": "#1f1b18",
+      "subgroup": "#e88d14",
+      "subgroup-fill": "#fdf4e8",
+      "icon": "#595550",
+      "accent": "#db4e18",
+      "label": "#46403b"
+    },
+    "reference": {
+      "comment": "Original reference look: maroon frame, orange arrows, blue dashed sub-group.",
+      "canvas": "#ffffff",
+      "frame": "#8B1E2D",
+      "group-fill": "#f5f5f5",
+      "group-stroke": "#e5e5e5",
+      "title": "#1a1a1a",
+      "subgroup": "#2563eb",
+      "subgroup-fill": "#eff6ff",
+      "icon": "#555555",
+      "accent": "#ff8c1a",
+      "label": "#333333"
+    },
+    "monochrome": {
+      "comment": "Near-grayscale, single subtle accent. Good for print/docs.",
+      "canvas": "#ffffff",
+      "frame": "#374151",
+      "group-fill": "#f7f7f8",
+      "group-stroke": "#e5e7eb",
+      "title": "#111827",
+      "subgroup": "#6b7280",
+      "subgroup-fill": "#f3f4f6",
+      "icon": "#4b5563",
+      "accent": "#111827",
+      "label": "#374151"
+    },
+    "ocean": {
+      "comment": "Cool blues/teal with a teal accent.",
+      "canvas": "#ffffff",
+      "frame": "#0f766e",
+      "group-fill": "#f3f7f8",
+      "group-stroke": "#e2eaec",
+      "title": "#0f172a",
+      "subgroup": "#0ea5e9",
+      "subgroup-fill": "#ecfeff",
+      "icon": "#475569",
+      "accent": "#0ea5e9",
+      "label": "#334155"
+    },
+    "forest": {
+      "comment": "Greens with a fresh green accent.",
+      "canvas": "#ffffff",
+      "frame": "#166534",
+      "group-fill": "#f5f8f5",
+      "group-stroke": "#e3ebe3",
+      "title": "#14271a",
+      "subgroup": "#16a34a",
+      "subgroup-fill": "#f0fdf4",
+      "icon": "#52635a",
+      "accent": "#22a06b",
+      "label": "#33433b"
+    },
+    "violet": {
+      "comment": "Indigo/violet with a vivid accent.",
+      "canvas": "#ffffff",
+      "frame": "#5b21b6",
+      "group-fill": "#f7f6fb",
+      "group-stroke": "#e8e4f3",
+      "title": "#1e1b2e",
+      "subgroup": "#7c3aed",
+      "subgroup-fill": "#f5f3ff",
+      "icon": "#574b63",
+      "accent": "#8b5cf6",
+      "label": "#3b3447"
+    }
+  }
+}
