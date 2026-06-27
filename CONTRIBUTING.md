@@ -45,8 +45,10 @@ Add a platform in `cli/src/platforms.ts`. Claude Code is the verified target; ot
 ## Versioning & releases
 
 - Semantic versioning; keep `skill.json`, `.claude-plugin/*.json`, and `cli/package.json` in lockstep.
-- Update `CHANGELOG.md`, tag `vX.Y.Z`. CI publishes the CLI to npm and creates a GitHub Release
-  (requires the `NPM_TOKEN` secret).
+- Add `docs/release-notes/vX.Y.Z.md`, update `CHANGELOG.md`, then tag `vX.Y.Z` and push the tag.
+  CI publishes the CLI to npm via **OIDC trusted publishing** (tokenless — no `NPM_TOKEN`) and
+  creates a GitHub Release. The npm package must already exist and have a trusted publisher
+  configured for `kjchen93/mighty-diagram` → `release.yml`.
 
 ## Pull requests
 
